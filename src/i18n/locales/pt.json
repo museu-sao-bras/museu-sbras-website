@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "Início",
+    "exhibitions": "Exposições",
+    "permanent": "Permanente",
+    "temporary": "Temporária",
+    "previous": "Anteriores",
+    "activities": "Atividades",
+    "tours": "Visitas",
+    "plans": "Planos & Voluntários",
+    "contact": "Contacto",
+    "donate": "Doar"
+  },
+  "hero": {
+    "title": "Museu do Traje",
+    "subtitle": "São Brás de Alportel",
+    "description": "A preservar o rico património têxtil da região do Algarve desde 1988. Descubra mais de 300 anos da história da moda portuguesa.",
+    "cta": "Explorar Coleções",
+    "secondaryCta": "Reservar Visita"
+  },
+  "about": {
+    "title": "A Nossa História",
+    "description": "O Museu do Traje de São Brás de Alportel preserva e exibe o rico património têxtil da região do Algarve. Fundado em 1988, o nosso museu possui uma das coleções mais abrangentes de Portugal de trajes tradicionais portugueses, vestuário popular e traje cerimonial.",
+    "mission": "A Nossa Missão",
+    "missionText": "Preservar, estudar e promover o património têxtil português através de exposições inovadoras, programas educativos e iniciativas culturais."
+  },
+  "stats": {
+    "items": "Peças de Vestuário",
+    "years": "Anos de História",
+    "regions": "Regiões Representadas"
+  },
+  "exhibitions": {
+    "title": "Exposições",
+    "permanent": "Coleção Permanente",
+    "permanentDesc": "Explore a nossa coleção principal que apresenta trajes tradicionais portugueses de várias regiões e períodos.",
+    "temporary": "Exposição Atual",
+    "temporaryDesc": "Descubra as nossas exposições rotativas com temas especiais e coleções convidadas.",
+    "previous": "Arquivo de Exposições",
+    "previousDesc": "Navegue pelas exposições passadas e conheça as suas histórias únicas."
+  },
+  "tours": {
+    "title": "Reservar Visita",
+    "subtitle": "Conheça o museu com uma visita guiada",
+    "description": "As nossas visitas guiadas oferecem uma exploração aprofundada das tradições têxteis portuguesas. As visitas estão disponíveis para grupos de 10 ou mais pessoas.",
+    "minimum": "Mínimo de 10 pessoas",
+    "form": {
+      "name": "Nome Completo",
+      "email": "Email",
+      "phone": "Telefone",
+      "date": "Data Preferida",
+      "people": "Número de Pessoas",
+      "message": "Informação Adicional",
+      "submit": "Solicitar Reserva",
+      "success": "Pedido de visita enviado com sucesso!",
+      "error": "Erro ao enviar pedido. Por favor, tente novamente."
+    }
+  },
+  "contact": {
+    "title": "Visite-nos",
+    "address": "Morada",
+    "addressLine1": "Largo de São Sebastião",
+    "addressLine2": "8150-146 São Brás de Alportel",
+    "addressLine3": "Portugal",
+    "hours": "Horário de Funcionamento",
+    "phone": "Telefone",
+    "email": "Email"
+  },
+  "donate": {
+    "title": "Apoie o Museu",
+    "subtitle": "A sua contribuição ajuda a preservar o nosso património cultural",
+    "monetary": "Doação Monetária",
+    "item": "Doar um Objeto",
+    "form": {
+      "type": "Tipo de Doação",
+      "amount": "Valor (€)",
+      "itemDesc": "Descrição do Objeto",
+      "images": "Carregar Imagens",
+      "submit": "Enviar Doação",
+      "success": "Obrigado pela sua doação!",
+      "error": "Erro ao processar doação. Por favor, tente novamente."
+    }
+  },
+  "footer": {
+    "about": "Sobre o Museu",
+    "aboutText": "O Museu do Traje preserva e celebra o património têxtil de Portugal, apresentando trajes tradicionais e arte popular de todo o país.",
+    "quickLinks": "Links Rápidos",
+    "followUs": "Siga-nos",
+    "rights": "Todos os direitos reservados."
+  }
+}

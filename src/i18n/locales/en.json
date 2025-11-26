@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "Home",
+    "exhibitions": "Exhibitions",
+    "permanent": "Permanent",
+    "temporary": "Temporary",
+    "previous": "Previous",
+    "activities": "Activities",
+    "tours": "Tours",
+    "plans": "Plans & Volunteers",
+    "contact": "Contact",
+    "donate": "Donate"
+  },
+  "hero": {
+    "title": "Museu do Traje",
+    "subtitle": "São Brás de Alportel",
+    "description": "Preserving the rich textile heritage of the Algarve region since 1988. Discover over 300 years of Portuguese fashion history.",
+    "cta": "Explore Collections",
+    "secondaryCta": "Book a Tour"
+  },
+  "about": {
+    "title": "Our History",
+    "description": "The Museu do Traje de São Brás de Alportel preserves and displays the rich textile heritage of the Algarve region. Founded in 1988, our museum houses one of Portugal's most comprehensive collections of traditional Portuguese costumes, folk clothing, and ceremonial dress.",
+    "mission": "Our Mission",
+    "missionText": "To preserve, study, and promote Portuguese textile heritage through innovative exhibitions, educational programs, and cultural initiatives."
+  },
+  "stats": {
+    "items": "Costume Pieces",
+    "years": "Years of History",
+    "regions": "Regions Represented"
+  },
+  "exhibitions": {
+    "title": "Exhibitions",
+    "permanent": "Permanent Collection",
+    "permanentDesc": "Explore our core collection showcasing traditional Portuguese costumes from various regions and time periods.",
+    "temporary": "Current Exhibition",
+    "temporaryDesc": "Discover our rotating exhibitions featuring special themes and guest collections.",
+    "previous": "Exhibition Archive",
+    "previousDesc": "Browse through past exhibitions and learn about their unique stories."
+  },
+  "tours": {
+    "title": "Book a Tour",
+    "subtitle": "Experience the museum with a guided tour",
+    "description": "Our guided tours offer an in-depth exploration of Portuguese textile traditions. Tours are available for groups of 10 or more people.",
+    "minimum": "Minimum 10 people",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "date": "Preferred Date",
+      "people": "Number of People",
+      "message": "Additional Information",
+      "submit": "Request Booking",
+      "success": "Tour request submitted successfully!",
+      "error": "Error submitting request. Please try again."
+    }
+  },
+  "contact": {
+    "title": "Visit Us",
+    "address": "Address",
+    "addressLine1": "Largo de São Sebastião",
+    "addressLine2": "8150-146 São Brás de Alportel",
+    "addressLine3": "Portugal",
+    "hours": "Opening Hours",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "donate": {
+    "title": "Support the Museum",
+    "subtitle": "Your contribution helps preserve our cultural heritage",
+    "monetary": "Monetary Donation",
+    "item": "Donate an Item",
+    "form": {
+      "type": "Donation Type",
+      "amount": "Amount (€)",
+      "itemDesc": "Item Description",
+      "images": "Upload Images",
+      "submit": "Submit Donation",
+      "success": "Thank you for your donation!",
+      "error": "Error processing donation. Please try again."
+    }
+  },
+  "footer": {
+    "about": "About the Museum",
+    "aboutText": "The Museu do Traje preserves and celebrates the textile heritage of Portugal, showcasing traditional costumes and folk art from across the country.",
+    "quickLinks": "Quick Links",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved."
+  }
+}

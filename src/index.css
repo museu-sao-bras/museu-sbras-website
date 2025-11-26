@@ -1,0 +1,146 @@
+@import 'react-quill/dist/quill.snow.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Museum brand colors - warm, earthy palette */
+    --background: 0 0% 100%;
+    --foreground: 30 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 15% 15%;
+
+    /* Olive green - primary brand color */
+    --primary: 58 33% 37%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 58 33% 50%;
+    --primary-dark: 58 33% 25%;
+
+    /* Coral/Salmon - accent color */
+    --secondary: 17 89% 68%;
+    --secondary-foreground: 30 15% 15%;
+    
+    /* Peach - lighter accent */
+    --accent: 28 90% 74%;
+    --accent-foreground: 30 15% 15%;
+
+    /* Muted tones for backgrounds */
+    --muted: 45 25% 95%;
+    --muted-foreground: 30 15% 40%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 45 20% 85%;
+    --input: 45 20% 85%;
+    --ring: 58 33% 37%;
+
+    --radius: 0.75rem;
+
+    /* Gradient definitions */
+    --gradient-hero: linear-gradient(135deg, hsl(58 33% 37%), hsl(59 44% 40%));
+    --gradient-accent: linear-gradient(135deg, hsl(17 89% 68%), hsl(28 90% 74%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(45 25% 97%));
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px hsla(58, 33%, 37%, 0.08);
+    --shadow-medium: 0 4px 16px hsla(58, 33%, 37%, 0.12);
+    --shadow-strong: 0 8px 32px hsla(58, 33%, 37%, 0.16);
+  }
+
+  .dark {
+    --background: 30 15% 8%;
+    --foreground: 45 25% 95%;
+
+    --card: 30 15% 12%;
+    --card-foreground: 45 25% 95%;
+
+    --popover: 30 15% 12%;
+    --popover-foreground: 45 25% 95%;
+
+    --primary: 58 33% 50%;
+    --primary-foreground: 30 15% 8%;
+
+    --secondary: 17 89% 68%;
+    --secondary-foreground: 30 15% 8%;
+
+    --accent: 28 90% 74%;
+    --accent-foreground: 30 15% 8%;
+
+    --muted: 30 15% 18%;
+    --muted-foreground: 45 25% 60%;
+
+    --border: 30 15% 20%;
+    --input: 30 15% 20%;
+    --ring: 58 33% 50%;
+  }
+}
+
+@layer utilities {
+  .text-gradient-hero {
+    @apply bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-accent {
+    @apply bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Rich Text Editor Styling */
+.ql-container {
+  @apply bg-background text-foreground rounded-b-md border-border;
+  min-height: 200px;
+}
+
+.ql-editor {
+  @apply text-foreground;
+  min-height: 200px;
+}
+
+.ql-editor.ql-blank::before {
+  @apply text-muted-foreground italic;
+}
+
+.ql-toolbar {
+  @apply bg-muted border-border rounded-t-md;
+}
+
+.ql-stroke {
+  @apply stroke-foreground;
+}
+
+.ql-fill {
+  @apply fill-foreground;
+}
+
+.ql-picker-label {
+  @apply text-foreground;
+}
+
+.ql-snow .ql-picker-options {
+  @apply bg-background border-border;
+}
+
+.ql-snow .ql-picker-item:hover {
+  @apply text-primary;
+}
