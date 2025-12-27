@@ -4,10 +4,9 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/museu-sbras-website/",
   server: {
     host: "::",
-    port: 5174,
+    port: 5173,
   },
   plugins: [react()].filter(Boolean),
   resolve: {

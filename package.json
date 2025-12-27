@@ -1,5 +1,4 @@
 {
-  "homepage": "https://museu-sao-bras.github.io/museu-sbras-website",
   "name": "museu-sbras-website",
   "private": true,
   "version": "0.0.0",
@@ -8,7 +7,6 @@
     "dev": "vite",
     "build": "vite build",
     "postbuild": "cp dist/index.html dist/404.html",
-    "predeploy": "vite build",
     "deploy": "gh-pages -d dist",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
