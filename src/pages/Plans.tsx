@@ -11,11 +11,12 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import RichTextEditor from '@/components/RichTextEditor';
 import { toast } from 'sonner';
+import { apiPost } from '@/lib/api';
 
 const volunteerSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   email: z.string().email('Valid email is required'),
-  phone: z.string().min(1, 'Phone number is required'),
+  phone: z.string().optional(),
   interests: z.string().min(50, 'Please tell us more about your interests (at least 50 characters)'),
 });
 
@@ -24,7 +25,8 @@ type VolunteerFormData = z.infer<typeof volunteerSchema>;
 const Plans = () => {
   const { t } = useTranslation();
   const [content, setContent] = useState('');
-  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const form = useForm<VolunteerFormData>({
     resolver: zodResolver(volunteerSchema),
     defaultValues: {
@@ -35,11 +37,28 @@ const Plans = () => {
     },
   });
 
-  const onSubmit = (data: VolunteerFormData) => {
-    console.log('Volunteer application:', { ...data, interests: content });
-    toast.success('Thank you for your interest! We will contact you soon.');
-    form.reset();
-    setContent('');
+  const onSubmit = async (data: VolunteerFormData) => {
+    // Construct payload matching the server shape
+    const payload = {
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      message: content || data.interests,
+    };
+
+    setIsSubmitting(true);
+    try {
+      await apiPost('/smtp/volunteer-application', payload);
+
+      toast.success('Thank you for your interest! We will contact you soon.');
+      form.reset();
+      setContent('');
+    } catch (err: any) {
+      console.error('Failed to submit volunteer application', err);
+      toast.error(err?.message || 'Failed to submit your application. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -145,8 +164,8 @@ const Plans = () => {
                 <CardHeader>
                   <CardTitle className="text-2xl">Become a Volunteer</CardTitle>
                   <p className="text-muted-foreground">
-                    We're always looking for passionate individuals to help with exhibitions, 
-                    educational programs, events, and preservation work. No experience necessary - 
+                    We're always looking for passionate individuals to help with exhibitions,
+                    educational programs, events, and preservation work. No experience necessary -
                     just enthusiasm for cultural heritage!
                   </p>
                 </CardHeader>
@@ -221,9 +240,9 @@ const Plans = () => {
                         />
                       </div> */}
 
-                      <Button type="submit" size="lg" className="w-full">
+                      <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                         <Send className="h-4 w-4 mr-2" />
-                        Submit Volunteer Application
+                        {isSubmitting ? 'Submitting...' : 'Submit Volunteer Application'}
                       </Button>
                     </form>
                   </Form>
