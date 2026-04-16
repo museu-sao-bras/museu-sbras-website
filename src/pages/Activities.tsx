@@ -7,10 +7,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Calendar, Users, Sparkles, Send } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { fadeUp } from '@/lib/motion';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import RichTextEditor from '@/components/RichTextEditor';
 import { toast } from 'sonner';
+import { apiPost } from '@/lib/api';
 
 const eventSchema = z.object({
   title: z.string().min(1, 'Event title is required'),
@@ -37,15 +40,40 @@ const Activities = () => {
     },
   });
 
-  const onSubmit = (data: EventFormData) => {
-    console.log('Event submission:', { ...data, description: content });
-    toast.success('Event submitted successfully! We will review it shortly.');
-    form.reset();
-    setContent('');
+  const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit = async (data: EventFormData) => {
+    const payload = { ...data, description: content };
+    try {
+      setSubmitting(true);
+
+      const params: string[] = [];
+      params.push(`title=${encodeURIComponent(payload.title)}`);
+      if (payload.organizer) params.push(`organizer_name=${encodeURIComponent(payload.organizer)}`);
+      if (payload.email) params.push(`organizer_email=${encodeURIComponent(payload.email)}`);
+      // no phone field in this form, but include if present
+      // description
+      if (payload.description) params.push(`description=${encodeURIComponent(payload.description)}`);
+      // date -> convert to ISO datetime
+      if (payload.date) {
+        const iso = new Date(payload.date).toISOString();
+        params.push(`date=${encodeURIComponent(iso)}`);
+      }
+
+      await apiPost(`/smtp/event-request?${params.join('&')}`, {});
+
+      toast.success('Event submitted successfully! We will review it shortly.');
+      form.reset();
+      setContent('');
+    } catch (err: any) {
+      toast.error(err?.message ?? 'Failed to submit event');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
-    <div className="min-h-screen pt-20">
+    <motion.div className="min-h-screen pt-20" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-5xl font-bold text-foreground mb-4 text-center">
           {t('nav.activities')}
@@ -182,7 +210,7 @@ const Activities = () => {
           </TabsContent>
         </Tabs>
 
-        <div className="mt-16 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-lg p-8 max-w-4xl mx-auto">
+        <div className="mt-16 bg-secondary/20 rounded-lg p-8 max-w-4xl mx-auto">
           <div className="text-center">
             <Sparkles className="h-12 w-12 text-primary mx-auto mb-4" />
             <h3 className="text-2xl font-bold mb-4">
@@ -198,7 +226,7 @@ const Activities = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Users, Clock, Calendar } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { apiPost } from '@/lib/api';
 
 const Tours = () => {
   const { t } = useTranslation();
@@ -16,15 +17,14 @@ const Tours = () => {
     email: '',
     phone: '',
     date: '',
-    people: '',
+    people: 10,
     message: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     // Basic validation
-    if (parseInt(formData.people) < 10) {
+    if (formData.people < 10) {
       toast({
         title: "Error",
         description: "Minimum 10 people required for group tours",
@@ -33,21 +33,51 @@ const Tours = () => {
       return;
     }
 
-    toast({
-      title: "Success!",
-      description: t('tours.form.success')
-    });
+    (async () => {
+      try {
+        setSubmitting(true);
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      date: '',
-      people: '',
-      message: ''
-    });
+        const params: string[] = [];
+        params.push(`name=${encodeURIComponent(formData.name)}`);
+        params.push(`email=${encodeURIComponent(formData.email)}`);
+        if (formData.phone) params.push(`phone=${encodeURIComponent(formData.phone)}`);
+        if (formData.message) params.push(`message=${encodeURIComponent(formData.message)}`);
+        if (formData.people) params.push(`visitor_count=${encodeURIComponent(String(formData.people))}`);
+        if (formData.date) {
+          // convert date to ISO datetime (server expects date-time)
+          const iso = new Date(formData.date).toISOString();
+          params.push(`date_of_visit=${encodeURIComponent(iso)}`);
+        }
+
+        await apiPost(`/smtp/booking-request?${params.join('&')}`, {});
+
+        toast({
+          title: "Success!",
+          description: t('tours.form.success')
+        });
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          date: '',
+          people: 10,
+          message: ''
+        });
+      } catch (err: any) {
+        toast({
+          title: "Error",
+          description: err?.message ?? 'Failed to send booking request',
+          variant: 'destructive'
+        });
+      } finally {
+        setSubmitting(false);
+      }
+    })();
   };
+
+  const [submitting, setSubmitting] = useState(false);
 
   return (
     <div className="min-h-screen pt-20">
@@ -65,23 +95,23 @@ const Tours = () => {
               <CardContent className="pt-6 text-center">
                 <Users className="h-12 w-12 text-primary mx-auto mb-3" />
                 <h3 className="font-bold mb-2">{t('tours.minimum')}</h3>
-                <p className="text-sm text-muted-foreground">Group bookings only</p>
+                <p className="text-sm text-muted-foreground">{t('tours.groupNote')}</p>
               </CardContent>
             </Card>
 
             <Card>
               <CardContent className="pt-6 text-center">
                 <Clock className="h-12 w-12 text-secondary mx-auto mb-3" />
-                <h3 className="font-bold mb-2">1.5 Hours</h3>
-                <p className="text-sm text-muted-foreground">Average tour duration</p>
+                <h3 className="font-bold mb-2">{t('tours.duration')}</h3>
+                <p className="text-sm text-muted-foreground">{t('tours.durationDesc')}</p>
               </CardContent>
             </Card>
 
             <Card>
               <CardContent className="pt-6 text-center">
                 <Calendar className="h-12 w-12 text-accent mx-auto mb-3" />
-                <h3 className="font-bold mb-2">Advance Booking</h3>
-                <p className="text-sm text-muted-foreground">Book at least 1 week ahead</p>
+                <h3 className="font-bold mb-2">{t('tours.booking')}</h3>
+                <p className="text-sm text-muted-foreground">{t('tours.bookingDesc')}</p>
               </CardContent>
             </Card>
           </div>
@@ -143,7 +173,7 @@ const Tours = () => {
                       type="number"
                       min="10"
                       value={formData.people}
-                      onChange={(e) => setFormData({ ...formData, people: e.target.value })}
+                      onChange={(e) => setFormData({ ...formData, people: parseInt(e.target.value) })}
                       required
                     />
                   </div>

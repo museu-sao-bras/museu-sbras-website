@@ -8,6 +8,12 @@
 All colors MUST be HSL.
 */
 
+/* New colour palette */
+/* Main Primary #014611ff */
+/* Main Secondary #01711bff */
+/* Accent Primary #ec1f28ff */
+/* Accent Secondary #9e1d21ff */
+
 @layer base {
   :root {
     /* Museum brand colors - warm, earthy palette */
@@ -20,19 +26,23 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 30 15% 15%;
 
-    /* Olive green - primary brand color */
-    --primary: 58 33% 37%;
+    /* New brand palette (converted from provided hex values) */
+    /* Main Primary: #014611 -> approx hsl(134 97% 14%) */
+    --primary: 134 97% 14%;
     --primary-foreground: 0 0% 98%;
-    --primary-light: 58 33% 50%;
-    --primary-dark: 58 33% 25%;
+    --primary-light: 134 97% 24%;
+    --primary-dark: 134 97% 8%;
 
-    /* Coral/Salmon - accent color */
-    --secondary: 17 89% 68%;
-    --secondary-foreground: 30 15% 15%;
-    
-    /* Peach - lighter accent */
-    --accent: 28 90% 74%;
-    --accent-foreground: 30 15% 15%;
+    /* Main Secondary: #01711b -> approx hsl(134 98% 22%) */
+    --secondary: 134 98% 22%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Accent Primary (coral/red): #ec1f28 -> approx hsl(357 84% 52%) */
+    --accent: 357 84% 52%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Accent Secondary (deep maroon): #9e1d21 -> approx hsl(358 69% 37%) */
+    --accent-secondary: 358 69% 37%;
 
     /* Muted tones for backgrounds */
     --muted: 45 25% 95%;
@@ -43,14 +53,14 @@ All colors MUST be HSL.
 
     --border: 45 20% 85%;
     --input: 45 20% 85%;
-    --ring: 58 33% 37%;
+    --ring: 134 97% 14%;
 
     --radius: 0.75rem;
 
     /* Gradient definitions */
-    --gradient-hero: linear-gradient(135deg, hsl(58 33% 37%), hsl(59 44% 40%));
-    --gradient-accent: linear-gradient(135deg, hsl(17 89% 68%), hsl(28 90% 74%));
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(45 25% 97%));
+    --gradient-hero: linear-gradient(135deg, hsl(134 97% 14%), hsl(134 97% 24%));
+    --gradient-accent: linear-gradient(135deg, hsl(357 84% 52%), hsl(358 69% 37%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(134 98% 95%));
 
     /* Shadows */
     --shadow-soft: 0 2px 8px hsla(58, 33%, 37%, 0.08);
@@ -68,13 +78,14 @@ All colors MUST be HSL.
     --popover: 30 15% 12%;
     --popover-foreground: 45 25% 95%;
 
-    --primary: 58 33% 50%;
+    /* Use slightly lighter primary in dark mode for better emphasis */
+    --primary: 134 97% 36%;
     --primary-foreground: 30 15% 8%;
 
-    --secondary: 17 89% 68%;
+    --secondary: 134 98% 32%;
     --secondary-foreground: 30 15% 8%;
 
-    --accent: 28 90% 74%;
+    --accent: 357 84% 52%;
     --accent-foreground: 30 15% 8%;
 
     --muted: 30 15% 18%;
@@ -82,7 +93,7 @@ All colors MUST be HSL.
 
     --border: 30 15% 20%;
     --input: 30 15% 20%;
-    --ring: 58 33% 50%;
+    --ring: 134 97% 36%;
   }
 }
 

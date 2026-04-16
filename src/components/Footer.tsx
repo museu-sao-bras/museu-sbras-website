@@ -9,33 +9,33 @@ export const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {/* About */}
-          <div>
+          {/* <div>
             <h3 className="font-bold text-lg mb-4">{t('footer.about')}</h3>
             <p className="text-sm text-primary-foreground/80 leading-relaxed">
               {t('footer.aboutText')}
             </p>
-          </div>
+          </div> */}
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4">{t('footer.quickLinks')}</h3>
+            <h3 className="font-bold text-lg mb-4">{t('footer.links')}</h3>
             <div className="flex flex-col gap-2">
-              <Link to="/exhibitions" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                {t('nav.exhibitions')}
+              <Link to="https://amigosdomuseu.com" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                Amigos do Museu
               </Link>
               <Link to="/tours" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                {t('nav.tours')}
+                Museum Club
               </Link>
-              <Link to="/activities" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                {t('nav.activities')}
+              <Link to="https://www.cm-sbras.pt/pt/10451/a-conversa-com-o-grupo-jasmim.aspx" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                Jasmim Choir
               </Link>
-              <Link to="/plans" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                {t('nav.plans')}
+              <Link to="/veredas-da-memoria" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                Veredas da Memória
               </Link>
-              <Link to="/contact" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                {t('nav.contact')}
+              <Link to="https://visitalgarve.pt/en/3294/museums.aspx" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                Museums in the Algarve
               </Link>
             </div>
           </div>
@@ -58,7 +58,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span>info@museu-sbras.pt</span>
+                <span>geral@museu-sbras.com</span>
               </div>
             </div>
           </div>
@@ -68,7 +68,7 @@ export const Footer = () => {
             <h3 className="font-bold text-lg mb-4">{t('footer.followUs')}</h3>
             <div className="flex gap-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/museudotraje.sba"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
@@ -76,7 +76,7 @@ export const Footer = () => {
                 <Facebook className="h-6 w-6" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/museudotraje_sba"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
@@ -88,7 +88,8 @@ export const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-primary-foreground/20 text-center text-sm text-primary-foreground/80">
-          © {currentYear} Museu do Traje. {t('footer.rights')}
+          © {currentYear} Museu do Traje. {t('footer.rights')}<br></br>
+          Created by <a className='underline' href="https://jamestwose.com">James Twose</a>
         </div>
       </div>
     </footer>

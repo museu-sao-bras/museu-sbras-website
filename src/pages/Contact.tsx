@@ -1,12 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { fadeUp } from '@/lib/motion';
 
 const Contact = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen pt-20">
+    <motion.div className="min-h-screen pt-20" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold text-foreground mb-12 text-center">
@@ -67,7 +69,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-bold text-lg mb-2">{t('contact.email')}</h3>
                     <p className="text-muted-foreground">
-                      info@museu-sbras.pt
+                      geral@museu-sbras.com
                     </p>
                   </div>
                 </div>
@@ -79,7 +81,7 @@ const Contact = () => {
             <CardContent className="p-0">
               <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.2!2d-7.889!3d37.153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDA5JzEwLjgiTiA3wrA1Mycd!5e0!3m2!1sen!2spt!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3179.9978597646414!2d-7.885788100000001!3d37.152750399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1aaedb2a747e0b%3A0xa118742ece82861b!2sAlgarve%20Costume%20Museum!5e0!3m2!1sen!2spt!4v1776243214393!5m2!1sen!2spt"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -93,7 +95,7 @@ const Contact = () => {
           </Card>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

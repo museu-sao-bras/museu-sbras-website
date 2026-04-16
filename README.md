@@ -49,3 +49,7 @@ Pull requests and suggestions are welcome! Please open an issue for major change
 
 ### License
 MIT
+
+### JSON <-> Markdown conversion
+- `node scripts/converter.cjs to-md src/i18n/locales/pt.json review.md`
+- `node scripts/converter.cjs to-json review.md src/i18n/locales/pt.json`

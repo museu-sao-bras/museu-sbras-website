@@ -7,6 +7,8 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Heart, Euro, Package } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { fadeUp } from '@/lib/motion';
 import { useToast } from '@/hooks/use-toast';
 
 const Donate = () => {
@@ -39,7 +41,7 @@ const Donate = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20">
+    <motion.div className="min-h-screen pt-20" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
@@ -211,7 +213,7 @@ const Donate = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

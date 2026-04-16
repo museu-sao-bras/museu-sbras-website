@@ -7,6 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Hammer, Calendar, Users, Send } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { fadeUp } from '@/lib/motion';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import RichTextEditor from '@/components/RichTextEditor';
@@ -62,7 +64,7 @@ const Plans = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20">
+    <motion.div className="min-h-screen pt-20" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-5xl font-bold text-foreground mb-4 text-center">
           {t('nav.plans')}
@@ -253,7 +255,7 @@ const Plans = () => {
 
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

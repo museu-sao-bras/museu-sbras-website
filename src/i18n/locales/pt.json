@@ -17,6 +17,22 @@
     "description": "A preservar o rico património têxtil da região do Algarve desde 1988. Descubra mais de 300 anos da história da moda portuguesa.",
     "cta": "Explorar Coleções",
     "secondaryCta": "Reservar Visita"
+    ,
+    "badges": {
+      "status": {
+        "label": "Estado",
+        "collection": "Adicionado à coleção 'Trajes Populares'"
+      },
+      "visitors": {
+        "label": "Visitantes",
+        "count": "+245 esta semana"
+      },
+      "display": {
+        "label": "Em Exposição",
+        "count": "124",
+        "unit": "Peças"
+      }
+    }
   },
   "about": {
     "title": "A Nossa História",
@@ -43,6 +59,11 @@
     "subtitle": "Conheça o museu com uma visita guiada",
     "description": "As nossas visitas guiadas oferecem uma exploração aprofundada das tradições têxteis portuguesas. As visitas estão disponíveis para grupos de 10 ou mais pessoas.",
     "minimum": "Mínimo de 10 pessoas",
+    "groupNote": "Apenas reservas de grupo",
+    "duration": "1.5 Horas",
+    "durationDesc": "Duração média da visita",
+    "booking": "Reserva Antecipada",
+    "bookingDesc": "Reserve pelo menos 1 semana antes",
     "form": {
       "name": "Nome Completo",
       "email": "Email",
@@ -58,8 +79,8 @@
   "contact": {
     "title": "Visite-nos",
     "address": "Morada",
-    "addressLine1": "Largo de São Sebastião",
-    "addressLine2": "8150-146 São Brás de Alportel",
+    "addressLine1": "R. Dr. José Dias Sancho 61",
+    "addressLine2": "8150-141 São Brás de Alportel",
     "addressLine3": "Portugal",
     "hours": "Horário de Funcionamento",
     "phone": "Telefone",
@@ -83,7 +104,7 @@
   "footer": {
     "about": "Sobre o Museu",
     "aboutText": "O Museu do Traje preserva e celebra o património têxtil de Portugal, apresentando trajes tradicionais e arte popular de todo o país.",
-    "quickLinks": "Links Rápidos",
+    "links": "Links",
     "followUs": "Siga-nos",
     "rights": "Todos os direitos reservados."
   }
