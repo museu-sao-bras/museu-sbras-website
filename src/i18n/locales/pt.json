@@ -9,7 +9,8 @@
     "tours": "Visitas",
     "plans": "Planos & Voluntários",
     "contact": "Contacto",
-    "donate": "Doar"
+     "donate": "Doar",
+     "library": "Biblioteca"
   },
   "hero": {
     "title": "Museu do Traje",
@@ -91,14 +92,44 @@
     "subtitle": "A sua contribuição ajuda a preservar o nosso património cultural",
     "monetary": "Doação Monetária",
     "item": "Doar um Objeto",
+    "cardTitle": "Faça uma Doação",
+    "radio": {
+      "monetaryDesc": "Contribuição financeira",
+      "itemDesc": "Traje ou artefato"
+    },
     "form": {
       "type": "Tipo de Doação",
       "amount": "Valor (€)",
       "itemDesc": "Descrição do Objeto",
       "images": "Carregar Imagens",
+      "name": "Nome Completo",
+      "email": "Email",
+      "message": "Mensagem Adicional (Opcional)",
+      "placeholder": {
+        "amount": "50.00",
+        "itemDesc": "Por favor descreva o(s) objeto(s) que deseja doar...",
+        "message": "Detalhes adicionais sobre a doação..."
+      },
       "submit": "Enviar Doação",
+      "successTitle": "Sucesso!",
       "success": "Obrigado pela sua doação!",
-      "error": "Erro ao processar doação. Por favor, tente novamente."
+      "error": "Erro ao processar doação. Por favor, tente novamente.",
+      "imagesHelp": "Por favor carregue imagens do(s) objeto(s) para a nossa avaliação"
+    },
+    "why": {
+      "title": "Porque Doar?",
+      "preservation": {
+        "title": "Preservação",
+        "desc": "Financie a conservação e restauro de têxteis históricos"
+      },
+      "education": {
+        "title": "Educação",
+        "desc": "Apoie programas educativos e oficinas"
+      },
+      "exhibitions": {
+        "title": "Exposições",
+        "desc": "Ajude a criar exposições envolventes para os visitantes"
+      }
     }
   },
   "footer": {
@@ -107,5 +138,144 @@
     "links": "Links",
     "followUs": "Siga-nos",
     "rights": "Todos os direitos reservados."
+  }
+  ,
+  "plans": {
+    "subtitle": "Junte-se a nós na preservação e promoção do património cultural português",
+    "cards": {
+      "renovations": {
+        "title": "Renovações",
+        "desc": "Melhorias em curso às instalações e espaços de exposição"
+      },
+      "exhibitions": {
+        "title": "Novas Exposições",
+        "desc": "Próximas exposições temporárias e coleções especiais"
+      },
+      "community": {
+        "title": "Programas Comunitários",
+        "desc": "Iniciativas educativas e atividades de alcance comunitário"
+      }
+    },
+    "tabs": {
+      "initiatives": "Iniciativas Atuais",
+      "volunteer": "Candidatura de Voluntariado"
+    },
+    "initiatives": {
+      "title": "Iniciativas Atuais",
+      "items": [
+        {
+          "title": "Projeto de Arquivo Digital",
+          "desc": "Digitalizar toda a nossa coleção para a tornar acessível online"
+        },
+        {
+          "title": "Oficina de Conservação",
+          "desc": "Estabelecer uma oficina de conservação têxtil para trabalhos de restauro"
+        },
+        {
+          "title": "Alcance Educativo",
+          "desc": "Desenvolver programas para escolas e grupos comunitários"
+        }
+      ]
+    },
+    "volunteer": {
+      "title": "Torne-se Voluntário",
+      "description": "Procuramos sempre pessoas entusiasmadas para ajudar em exposições, programas educativos, eventos e conservação. Não é necessária experiência — apenas interesse pelo património cultural!"
+    },
+    "form": {
+      "name": "Nome Completo",
+      "email": "Email",
+      "phone": "Telefone",
+      "interests": "Conte-nos sobre os seus interesses",
+      "placeholder": {
+        "name": "O seu nome completo",
+        "email": "seu.email@exemplo.com",
+        "phone": "+351 XXX XXX XXX",
+        "interests": "Em que áreas gostaria de ajudar? Que competências ou experiência tem? Quais são os seus interesses no património cultural?"
+      },
+      "submit": "Enviar Candidatura de Voluntariado",
+      "submitting": "A enviar...",
+      "success": "Obrigado pelo seu interesse! Entraremos em contacto em breve.",
+      "error": "Falha ao enviar a sua candidatura. Por favor, tente novamente mais tarde.",
+      "errors": {
+        "name": "O nome é obrigatório",
+        "email": "É necessário um email válido",
+        "interests": "Por favor conte-nos mais sobre os seus interesses (pelo menos 50 caracteres)"
+      }
+    }
+  }
+  ,
+  "activities": {
+    "subtitle": "Os espaços do museu acolhem vários eventos e atividades culturais ao longo do ano",
+    "tabs": {
+      "events": "Próximos Eventos",
+      "submit": "Submeter Evento"
+    },
+    "events": {
+      "heading": "Explorar Eventos",
+      "description": "Ver e inscrever-se em próximos eventos culturais, oficinas e exposições",
+      "buttonComingSoon": "Ver Eventos (Em Breve)"
+    },
+    "submit": {
+      "title": "Submeta o Seu Evento",
+      "description": "Partilhe o seu evento cultural com a nossa comunidade. Todas as submissões serão revistas pela equipa do museu."
+    },
+    "form": {
+      "title": "Título do Evento",
+      "date": "Data do Evento",
+      "organizer": "Nome do Organizador",
+      "email": "Email de Contacto",
+      "description": "Descrição do Evento",
+      "placeholder": {
+        "title": "Introduza o título do evento",
+        "organizer": "O seu nome ou organização",
+        "email": "seu.email@exemplo.com",
+        "description": "Descreva o seu evento em detalhe..."
+      },
+      "submit": "Submeter Evento para Revisão",
+      "submitting": "A enviar...",
+      "success": "Evento enviado com sucesso! Vamos rever em breve.",
+      "error": "Falha ao submeter evento",
+      "errors": {
+        "title": "O título do evento é obrigatório",
+        "date": "A data do evento é obrigatória",
+        "organizer": "O nome do organizador é obrigatório",
+        "email": "É necessário um email válido",
+        "description": "A descrição deve ter pelo menos 50 caracteres"
+      }
+    },
+    "preview": {
+      "title": "Pré-visualização",
+      "empty": "A descrição do seu evento aparecerá aqui..."
+    },
+    "host": {
+      "title": "Organize o Seu Evento no Nosso Museu",
+      "description": "Os nossos bonitos espaços e instalações estão disponíveis para eventos culturais, oficinas, exposições e atividades educativas. Contacte-nos para discutir o seu evento.",
+      "contact": "Contacte-nos"
+    }
+  }
+  ,
+  "library": {
+    "loading": "A carregar…",
+    "error": "Falha ao carregar a biblioteca: {{error}}",
+    "view": "Ver",
+    "descriptionTitle": "Descrição completa",
+    "table": {
+      "nr": "Nr",
+      "title": "Título",
+      "vol": "Vol",
+      "author": "Autor",
+      "publisher": "Editora",
+      "place": "Local",
+      "year": "Ano",
+      "est": "Est",
+      "pra": "Pra",
+      "description": "Descrição",
+      "link": "Cópia Digital"
+    }
+    ,
+    "controls": {
+      "searchPlaceholder": "Procurar título, autor, editora",
+      "sortBy": "Ordenar por"
+    }
   }
 }

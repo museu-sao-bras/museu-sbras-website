@@ -27,7 +27,7 @@ const Donate = () => {
     e.preventDefault();
     
     toast({
-      title: "Success!",
+      title: t('donate.form.successTitle'),
       description: t('donate.form.success')
     });
 
@@ -56,7 +56,7 @@ const Donate = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-2xl">Make a Donation</CardTitle>
+              <CardTitle className="text-2xl">{t('donate.cardTitle')}</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -78,7 +78,7 @@ const Donate = () => {
                         <Euro className="h-8 w-8 text-primary" />
                         <div>
                           <div className="font-bold">{t('donate.monetary')}</div>
-                          <div className="text-sm text-muted-foreground">Financial contribution</div>
+                          <div className="text-sm text-muted-foreground">{t('donate.radio.monetaryDesc')}</div>
                         </div>
                       </div>
                     </Label>
@@ -94,7 +94,7 @@ const Donate = () => {
                         <Package className="h-8 w-8 text-secondary" />
                         <div>
                           <div className="font-bold">{t('donate.item')}</div>
-                          <div className="text-sm text-muted-foreground">Costume or artifact</div>
+                          <div className="text-sm text-muted-foreground">{t('donate.radio.itemDesc')}</div>
                         </div>
                       </div>
                     </Label>
@@ -102,19 +102,19 @@ const Donate = () => {
                 </div>
 
                 {donationType === 'money' ? (
-                  <div>
-                    <Label htmlFor="amount">{t('donate.form.amount')}</Label>
-                    <Input
-                      id="amount"
-                      type="number"
-                      min="1"
-                      step="0.01"
-                      value={formData.amount}
-                      onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
-                      placeholder="50.00"
-                      required
-                    />
-                  </div>
+                    <div>
+                      <Label htmlFor="amount">{t('donate.form.amount')}</Label>
+                      <Input
+                        id="amount"
+                        type="number"
+                        min="1"
+                        step="0.01"
+                        value={formData.amount}
+                        onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
+                        placeholder={t('donate.form.placeholder.amount')}
+                        required
+                      />
+                    </div>
                 ) : (
                   <>
                     <div>
@@ -124,7 +124,7 @@ const Donate = () => {
                         value={formData.itemDescription}
                         onChange={(e) => setFormData({ ...formData, itemDescription: e.target.value })}
                         rows={4}
-                        placeholder="Please describe the item(s) you wish to donate..."
+                        placeholder={t('donate.form.placeholder.itemDesc')}
                         required
                       />
                     </div>
@@ -138,16 +138,14 @@ const Donate = () => {
                         multiple
                         className="cursor-pointer"
                       />
-                      <p className="text-sm text-muted-foreground mt-2">
-                        Please upload images of the item(s) for our assessment
-                      </p>
+                      <p className="text-sm text-muted-foreground mt-2">{t('donate.form.imagesHelp')}</p>
                     </div>
                   </>
                 )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <Label htmlFor="name">Full Name</Label>
+                    <Label htmlFor="name">{t('donate.form.name')}</Label>
                     <Input
                       id="name"
                       value={formData.name}
@@ -157,7 +155,7 @@ const Donate = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="email">Email Address</Label>
+                    <Label htmlFor="email">{t('donate.form.email')}</Label>
                     <Input
                       id="email"
                       type="email"
@@ -169,12 +167,13 @@ const Donate = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="message">Additional Message (Optional)</Label>
+                  <Label htmlFor="message">{t('donate.form.message')}</Label>
                   <Textarea
                     id="message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={3}
+                    placeholder={t('donate.form.placeholder.message')}
                   />
                 </div>
 
@@ -186,28 +185,22 @@ const Donate = () => {
           </Card>
 
           <div className="mt-12 bg-muted rounded-lg p-8">
-            <h3 className="text-2xl font-bold mb-4 text-center">Why Donate?</h3>
+            <h3 className="text-2xl font-bold mb-4 text-center">{t('donate.why.title')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">€</div>
-                <h4 className="font-bold mb-2">Preservation</h4>
-                <p className="text-sm text-muted-foreground">
-                  Fund conservation and restoration of historical textiles
-                </p>
+                <h4 className="font-bold mb-2">{t('donate.why.preservation.title')}</h4>
+                <p className="text-sm text-muted-foreground">{t('donate.why.preservation.desc')}</p>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-secondary mb-2">📚</div>
-                <h4 className="font-bold mb-2">Education</h4>
-                <p className="text-sm text-muted-foreground">
-                  Support educational programs and workshops
-                </p>
+                <h4 className="font-bold mb-2">{t('donate.why.education.title')}</h4>
+                <p className="text-sm text-muted-foreground">{t('donate.why.education.desc')}</p>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-accent mb-2">🎨</div>
-                <h4 className="font-bold mb-2">Exhibitions</h4>
-                <p className="text-sm text-muted-foreground">
-                  Help create engaging exhibitions for visitors
-                </p>
+                <h4 className="font-bold mb-2">{t('donate.why.exhibitions.title')}</h4>
+                <p className="text-sm text-muted-foreground">{t('donate.why.exhibitions.desc')}</p>
               </div>
             </div>
           </div>

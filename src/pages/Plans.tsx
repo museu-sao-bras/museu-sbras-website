@@ -15,19 +15,21 @@ import RichTextEditor from '@/components/RichTextEditor';
 import { toast } from 'sonner';
 import { apiPost } from '@/lib/api';
 
-const volunteerSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  email: z.string().email('Valid email is required'),
-  phone: z.string().optional(),
-  interests: z.string().min(50, 'Please tell us more about your interests (at least 50 characters)'),
-});
-
-type VolunteerFormData = z.infer<typeof volunteerSchema>;
+// validation schema will be created inside the component so it can use localized messages
 
 const Plans = () => {
   const { t } = useTranslation();
   const [content, setContent] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const volunteerSchema = z.object({
+    name: z.string().min(1, t('plans.form.errors.name')),
+    email: z.string().email(t('plans.form.errors.email')),
+    phone: z.string().optional(),
+    interests: z.string().min(50, t('plans.form.errors.interests')),
+  });
+
+  type VolunteerFormData = z.infer<typeof volunteerSchema>;
 
   const form = useForm<VolunteerFormData>({
     resolver: zodResolver(volunteerSchema),
@@ -52,12 +54,12 @@ const Plans = () => {
     try {
       await apiPost('/smtp/volunteer-application', payload);
 
-      toast.success('Thank you for your interest! We will contact you soon.');
+      toast.success(t('plans.form.success'));
       form.reset();
       setContent('');
     } catch (err: any) {
       console.error('Failed to submit volunteer application', err);
-      toast.error(err?.message || 'Failed to submit your application. Please try again later.');
+      toast.error(err?.message || t('plans.form.error'));
     } finally {
       setIsSubmitting(false);
     }
@@ -70,37 +72,31 @@ const Plans = () => {
           {t('nav.plans')}
         </h1>
         <p className="text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-          Join us in preserving and promoting Portuguese cultural heritage
+          {t('plans.subtitle')}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <Card className="hover:shadow-xl transition-shadow">
             <CardContent className="p-8">
               <Hammer className="h-16 w-16 text-primary mb-6 mx-auto" />
-              <h2 className="text-2xl font-bold text-center mb-4">Renovations</h2>
-              <p className="text-muted-foreground text-center">
-                Ongoing improvements to facilities and exhibition spaces
-              </p>
+              <h2 className="text-2xl font-bold text-center mb-4">{t('plans.cards.renovations.title')}</h2>
+              <p className="text-muted-foreground text-center">{t('plans.cards.renovations.desc')}</p>
             </CardContent>
           </Card>
 
           <Card className="hover:shadow-xl transition-shadow">
             <CardContent className="p-8">
               <Calendar className="h-16 w-16 text-secondary mb-6 mx-auto" />
-              <h2 className="text-2xl font-bold text-center mb-4">New Exhibitions</h2>
-              <p className="text-muted-foreground text-center">
-                Upcoming temporary exhibitions and special collections
-              </p>
+              <h2 className="text-2xl font-bold text-center mb-4">{t('plans.cards.exhibitions.title')}</h2>
+              <p className="text-muted-foreground text-center">{t('plans.cards.exhibitions.desc')}</p>
             </CardContent>
           </Card>
 
           <Card className="hover:shadow-xl transition-shadow">
             <CardContent className="p-8">
               <Users className="h-16 w-16 text-accent mb-6 mx-auto" />
-              <h2 className="text-2xl font-bold text-center mb-4">Community Programs</h2>
-              <p className="text-muted-foreground text-center">
-                Educational initiatives and outreach activities
-              </p>
+              <h2 className="text-2xl font-bold text-center mb-4">{t('plans.cards.community.title')}</h2>
+              <p className="text-muted-foreground text-center">{t('plans.cards.community.desc')}</p>
             </CardContent>
           </Card>
         </div>
@@ -110,18 +106,18 @@ const Plans = () => {
             <TabsList className="grid w-full grid-cols-2 mb-8">
               <TabsTrigger value="initiatives">
                 <Hammer className="h-4 w-4 mr-2" />
-                Current Initiatives
+                {t('plans.tabs.initiatives')}
               </TabsTrigger>
               <TabsTrigger value="volunteer">
                 <Send className="h-4 w-4 mr-2" />
-                Volunteer Application
+                {t('plans.tabs.volunteer')}
               </TabsTrigger>
             </TabsList>
 
             <TabsContent value="initiatives">
               <Card className="bg-muted">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Current Initiatives</CardTitle>
+                  <CardTitle className="text-2xl">{t('plans.initiatives.title')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start gap-4">
@@ -129,10 +125,8 @@ const Plans = () => {
                       1
                     </div>
                     <div>
-                      <h4 className="font-bold mb-1">Digital Archive Project</h4>
-                      <p className="text-muted-foreground">
-                        Digitizing our entire collection to make it accessible online
-                      </p>
+                      <h4 className="font-bold mb-1">{t('plans.initiatives.items.0.title')}</h4>
+                      <p className="text-muted-foreground">{t('plans.initiatives.items.0.desc')}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -140,10 +134,8 @@ const Plans = () => {
                       2
                     </div>
                     <div>
-                      <h4 className="font-bold mb-1">Conservation Workshop</h4>
-                      <p className="text-muted-foreground">
-                        Establishing a textile conservation workshop for restoration work
-                      </p>
+                      <h4 className="font-bold mb-1">{t('plans.initiatives.items.1.title')}</h4>
+                      <p className="text-muted-foreground">{t('plans.initiatives.items.1.desc')}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -151,10 +143,8 @@ const Plans = () => {
                       3
                     </div>
                     <div>
-                      <h4 className="font-bold mb-1">Educational Outreach</h4>
-                      <p className="text-muted-foreground">
-                        Developing programs for schools and community groups
-                      </p>
+                      <h4 className="font-bold mb-1">{t('plans.initiatives.items.2.title')}</h4>
+                      <p className="text-muted-foreground">{t('plans.initiatives.items.2.desc')}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -164,12 +154,8 @@ const Plans = () => {
             <TabsContent value="volunteer">
               <Card className="bg-gradient-to-r from-primary/5 to-secondary/5 border-2">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Become a Volunteer</CardTitle>
-                  <p className="text-muted-foreground">
-                    We're always looking for passionate individuals to help with exhibitions,
-                    educational programs, events, and preservation work. No experience necessary -
-                    just enthusiasm for cultural heritage!
-                  </p>
+                  <CardTitle className="text-2xl">{t('plans.volunteer.title')}</CardTitle>
+                  <p className="text-muted-foreground">{t('plans.volunteer.description')}</p>
                 </CardHeader>
                 <CardContent>
                   <Form {...form}>
@@ -180,9 +166,9 @@ const Plans = () => {
                           name="name"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Full Name</FormLabel>
+                              <FormLabel>{t('plans.form.name')}</FormLabel>
                               <FormControl>
-                                <Input placeholder="Your full name" {...field} />
+                                <Input placeholder={t('plans.form.placeholder.name')} {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -193,9 +179,9 @@ const Plans = () => {
                           name="email"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Email</FormLabel>
+                              <FormLabel>{t('plans.form.email')}</FormLabel>
                               <FormControl>
-                                <Input type="email" placeholder="your.email@example.com" {...field} />
+                                <Input type="email" placeholder={t('plans.form.placeholder.email')} {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -206,9 +192,9 @@ const Plans = () => {
                           name="phone"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Phone</FormLabel>
+                              <FormLabel>{t('plans.form.phone')}</FormLabel>
                               <FormControl>
-                                <Input placeholder="+351 XXX XXX XXX" {...field} />
+                                <Input placeholder={t('plans.form.placeholder.phone')} {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -217,14 +203,14 @@ const Plans = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <FormLabel>Tell Us About Your Interests</FormLabel>
+                        <FormLabel>{t('plans.form.interests')}</FormLabel>
                         <RichTextEditor
                           value={content}
                           onChange={(value) => {
                             setContent(value);
                             form.setValue('interests', value, { shouldValidate: true });
                           }}
-                          placeholder="What areas would you like to help with? What skills or experience do you have? What are your interests in cultural heritage?"
+                          placeholder={t('plans.form.placeholder.interests')}
                           className="min-h-[300px]"
                         />
                         {form.formState.errors.interests && (
@@ -244,7 +230,7 @@ const Plans = () => {
 
                       <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                         <Send className="h-4 w-4 mr-2" />
-                        {isSubmitting ? 'Submitting...' : 'Submit Volunteer Application'}
+                        {isSubmitting ? t('plans.form.submitting') : t('plans.form.submit')}
                       </Button>
                     </form>
                   </Form>

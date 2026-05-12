@@ -22,6 +22,15 @@ export const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">{t('footer.links')}</h3>
             <div className="flex flex-col gap-2">
+              <Link to="/library" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                {t('nav.library')}
+              </Link>
+              <Link to="/activities" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                {t('nav.activities')}
+              </Link>
+              <Link to="/donate" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                {t('nav.donate')}
+              </Link>
               <Link to="https://amigosdomuseu.com" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 Amigos do Museu
               </Link>

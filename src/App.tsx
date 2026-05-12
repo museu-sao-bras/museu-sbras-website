@@ -17,6 +17,7 @@ import NotFound from "./pages/NotFound";
 import "@/i18n/config";
 import ExhibitionsCollection from './pages/ExhibitionsCollection';
 import Veredas from "./pages/external/Veredas";
+import Library from "./pages/Library";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/donate" element={<Donate />} />
               <Route path="/veredas-da-memoria" element={<Veredas />} />
+              <Route path="/library" element={<Library />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

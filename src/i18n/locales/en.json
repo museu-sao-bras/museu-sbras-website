@@ -9,7 +9,8 @@
     "tours": "Tours",
     "plans": "Plans & Volunteers",
     "contact": "Contact",
-    "donate": "Donate"
+    "donate": "Donate",
+    "library": "Library"
   },
   "hero": {
     "title": "Costume Museum",
@@ -91,14 +92,44 @@
     "subtitle": "Your contribution helps preserve our cultural heritage",
     "monetary": "Monetary Donation",
     "item": "Donate an Item",
+    "cardTitle": "Make a Donation",
+    "radio": {
+      "monetaryDesc": "Financial contribution",
+      "itemDesc": "Costume or artifact"
+    },
     "form": {
       "type": "Donation Type",
       "amount": "Amount (€)",
       "itemDesc": "Item Description",
       "images": "Upload Images",
+      "name": "Full Name",
+      "email": "Email Address",
+      "message": "Additional Message (Optional)",
+      "placeholder": {
+        "amount": "50.00",
+        "itemDesc": "Please describe the item(s) you wish to donate...",
+        "message": "Any additional details for the donation..."
+      },
       "submit": "Submit Donation",
+      "successTitle": "Success!",
       "success": "Thank you for your donation!",
-      "error": "Error processing donation. Please try again."
+      "error": "Error processing donation. Please try again.",
+      "imagesHelp": "Please upload images of the item(s) for our assessment"
+    },
+    "why": {
+      "title": "Why Donate?",
+      "preservation": {
+        "title": "Preservation",
+        "desc": "Fund conservation and restoration of historical textiles"
+      },
+      "education": {
+        "title": "Education",
+        "desc": "Support educational programs and workshops"
+      },
+      "exhibitions": {
+        "title": "Exhibitions",
+        "desc": "Help create engaging exhibitions for visitors"
+      }
     }
   },
   "footer": {
@@ -107,5 +138,144 @@
     "links": "Links",
     "followUs": "Follow Us",
     "rights": "All rights reserved."
+  }
+  ,
+  "plans": {
+    "subtitle": "Join us in preserving and promoting Portuguese cultural heritage",
+    "cards": {
+      "renovations": {
+        "title": "Renovations",
+        "desc": "Ongoing improvements to facilities and exhibition spaces"
+      },
+      "exhibitions": {
+        "title": "New Exhibitions",
+        "desc": "Upcoming temporary exhibitions and special collections"
+      },
+      "community": {
+        "title": "Community Programs",
+        "desc": "Educational initiatives and outreach activities"
+      }
+    },
+    "tabs": {
+      "initiatives": "Current Initiatives",
+      "volunteer": "Volunteer Application"
+    },
+    "initiatives": {
+      "title": "Current Initiatives",
+      "items": [
+        {
+          "title": "Digital Archive Project",
+          "desc": "Digitizing our entire collection to make it accessible online"
+        },
+        {
+          "title": "Conservation Workshop",
+          "desc": "Establishing a textile conservation workshop for restoration work"
+        },
+        {
+          "title": "Educational Outreach",
+          "desc": "Developing programs for schools and community groups"
+        }
+      ]
+    },
+    "volunteer": {
+      "title": "Become a Volunteer",
+      "description": "We're always looking for passionate individuals to help with exhibitions, educational programs, events, and preservation work. No experience necessary - just enthusiasm for cultural heritage!"
+    },
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "interests": "Tell Us About Your Interests",
+      "placeholder": {
+        "name": "Your full name",
+        "email": "your.email@example.com",
+        "phone": "+351 XXX XXX XXX",
+        "interests": "What areas would you like to help with? What skills or experience do you have? What are your interests in cultural heritage?"
+      },
+      "submit": "Submit Volunteer Application",
+      "submitting": "Submitting...",
+      "success": "Thank you for your interest! We will contact you soon.",
+      "error": "Failed to submit your application. Please try again later.",
+      "errors": {
+        "name": "Name is required",
+        "email": "Valid email is required",
+        "interests": "Please tell us more about your interests (at least 50 characters)"
+      }
+    }
+  }
+  ,
+  "activities": {
+    "subtitle": "The museum grounds host various cultural events and activities throughout the year",
+    "tabs": {
+      "events": "Upcoming Events",
+      "submit": "Submit Event"
+    },
+    "events": {
+      "heading": "Browse Events",
+      "description": "View and register for upcoming cultural events, workshops, and exhibitions",
+      "buttonComingSoon": "View Events (Coming Soon)"
+    },
+    "submit": {
+      "title": "Submit Your Event",
+      "description": "Share your cultural event with our community. All submissions will be reviewed by museum staff."
+    },
+    "form": {
+      "title": "Event Title",
+      "date": "Event Date",
+      "organizer": "Organizer Name",
+      "email": "Contact Email",
+      "description": "Event Description",
+      "placeholder": {
+        "title": "Enter event title",
+        "organizer": "Your name or organization",
+        "email": "your.email@example.com",
+        "description": "Describe your event in detail..."
+      },
+      "submit": "Submit Event for Review",
+      "submitting": "Submitting...",
+      "success": "Event submitted successfully! We will review it shortly.",
+      "error": "Failed to submit event",
+      "errors": {
+        "title": "Event title is required",
+        "date": "Event date is required",
+        "organizer": "Organizer name is required",
+        "email": "Valid email is required",
+        "description": "Description must be at least 50 characters"
+      }
+    },
+    "preview": {
+      "title": "Preview",
+      "empty": "Your event description will appear here..."
+    },
+    "host": {
+      "title": "Host Your Event at Our Museum",
+      "description": "Our beautiful grounds and facilities are available for cultural events, workshops, exhibitions, and educational activities. Contact us to discuss your event.",
+      "contact": "Contact Us"
+    }
+  }
+  ,
+  "library": {
+    "loading": "Loading…",
+    "error": "Failed to load library: {{error}}",
+    "view": "View",
+    "descriptionTitle": "Full description",
+    "table": {
+      "nr": "Nr",
+      "title": "Title",
+      "vol": "Vol",
+      "author": "Author",
+      "publisher": "Publisher",
+      "place": "Place",
+      "year": "Year",
+      "est": "Est",
+      "pra": "Pra",
+      "description": "Description",
+      "link": "Digital Copy"
+    }
+    ,
+    "controls": {
+      "searchPlaceholder": "Search title, author, publisher",
+      "sortBy": "Sort by"
+    }
   }
 }

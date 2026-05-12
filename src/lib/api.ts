@@ -76,3 +76,14 @@ export async function apiUpload<T>(endpoint: string, formData: FormData): Promis
   });
   return handleResponse(response) as Promise<T>;
 }
+
+// Log an analytics/tracking event. The API accepts a JSON object with arbitrary properties.
+export async function logEvent(data: Record<string, any>): Promise<any> {
+  try {
+    return await apiPost('/tracking/log-event', data);
+  } catch (err) {
+    // Swallow errors for non-critical tracking; optionally log to console in dev
+    if (import.meta.env.DEV) console.warn('logEvent failed', err);
+    return undefined;
+  }
+}

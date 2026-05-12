@@ -15,20 +15,20 @@ import RichTextEditor from '@/components/RichTextEditor';
 import { toast } from 'sonner';
 import { apiPost } from '@/lib/api';
 
-const eventSchema = z.object({
-  title: z.string().min(1, 'Event title is required'),
-  date: z.string().min(1, 'Event date is required'),
-  organizer: z.string().min(1, 'Organizer name is required'),
-  email: z.string().email('Valid email is required'),
-  description: z.string().min(50, 'Description must be at least 50 characters'),
-});
-
-type EventFormData = z.infer<typeof eventSchema>;
-
 const Activities = () => {
   const { t } = useTranslation();
   const [content, setContent] = useState('');
-  
+
+  const eventSchema = z.object({
+    title: z.string().min(1, t('activities.form.errors.title')),
+    date: z.string().min(1, t('activities.form.errors.date')),
+    organizer: z.string().min(1, t('activities.form.errors.organizer')),
+    email: z.string().email(t('activities.form.errors.email')),
+    description: z.string().min(50, t('activities.form.errors.description')),
+  });
+
+  type EventFormData = z.infer<typeof eventSchema>;
+
   const form = useForm<EventFormData>({
     resolver: zodResolver(eventSchema),
     defaultValues: {
@@ -62,11 +62,11 @@ const Activities = () => {
 
       await apiPost(`/smtp/event-request?${params.join('&')}`, {});
 
-      toast.success('Event submitted successfully! We will review it shortly.');
+      toast.success(t('activities.form.success'));
       form.reset();
       setContent('');
     } catch (err: any) {
-      toast.error(err?.message ?? 'Failed to submit event');
+      toast.error(err?.message ?? t('activities.form.error'));
     } finally {
       setSubmitting(false);
     }
@@ -79,41 +79,37 @@ const Activities = () => {
           {t('nav.activities')}
         </h1>
         <p className="text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-          The museum grounds host various cultural events and activities throughout the year
+          {t('activities.subtitle')}
         </p>
 
         <Tabs defaultValue="events" className="max-w-5xl mx-auto">
           <TabsList className="grid w-full grid-cols-2 mb-8">
             <TabsTrigger value="events">
               <Calendar className="h-4 w-4 mr-2" />
-              Upcoming Events
+              {t('activities.tabs.events')}
             </TabsTrigger>
             <TabsTrigger value="submit">
               <Send className="h-4 w-4 mr-2" />
-              Submit Event
+              {t('activities.tabs.submit')}
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value="events">
             <Card>
-              <CardContent className="p-8 text-center">
-                <Calendar className="h-16 w-16 text-secondary mb-6 mx-auto" />
-                <h2 className="text-2xl font-bold mb-4">Browse Events</h2>
-                <p className="text-muted-foreground mb-6">
-                  View and register for upcoming cultural events, workshops, and exhibitions
-                </p>
-                <Button disabled>View Events (Coming Soon)</Button>
-              </CardContent>
+                <CardContent className="p-8 text-center">
+                  <Calendar className="h-16 w-16 text-secondary mb-6 mx-auto" />
+                  <h2 className="text-2xl font-bold mb-4">{t('activities.events.heading')}</h2>
+                  <p className="text-muted-foreground mb-6">{t('activities.events.description')}</p>
+                  <Button disabled>{t('activities.events.buttonComingSoon')}</Button>
+                </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="submit">
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl">Submit Your Event</CardTitle>
-                <p className="text-muted-foreground">
-                  Share your cultural event with our community. All submissions will be reviewed by museum staff.
-                </p>
+                <CardTitle className="text-2xl">{t('activities.submit.title')}</CardTitle>
+                <p className="text-muted-foreground">{t('activities.submit.description')}</p>
               </CardHeader>
               <CardContent>
                 <Form {...form}>
@@ -124,9 +120,9 @@ const Activities = () => {
                         name="title"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Event Title</FormLabel>
+                            <FormLabel>{t('activities.form.title')}</FormLabel>
                             <FormControl>
-                              <Input placeholder="Enter event title" {...field} />
+                              <Input placeholder={t('activities.form.placeholder.title')} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -137,7 +133,7 @@ const Activities = () => {
                         name="date"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Event Date</FormLabel>
+                            <FormLabel>{t('activities.form.date')}</FormLabel>
                             <FormControl>
                               <Input type="date" {...field} />
                             </FormControl>
@@ -150,9 +146,9 @@ const Activities = () => {
                         name="organizer"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Organizer Name</FormLabel>
+                            <FormLabel>{t('activities.form.organizer')}</FormLabel>
                             <FormControl>
-                              <Input placeholder="Your name or organization" {...field} />
+                              <Input placeholder={t('activities.form.placeholder.organizer')} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -163,9 +159,9 @@ const Activities = () => {
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Contact Email</FormLabel>
+                            <FormLabel>{t('activities.form.email')}</FormLabel>
                             <FormControl>
-                              <Input type="email" placeholder="your.email@example.com" {...field} />
+                              <Input type="email" placeholder={t('activities.form.placeholder.email')} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -174,14 +170,14 @@ const Activities = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <FormLabel>Event Description</FormLabel>
+                      <FormLabel>{t('activities.form.description')}</FormLabel>
                       <RichTextEditor
                         value={content}
                         onChange={(value) => {
                           setContent(value);
                           form.setValue('description', value, { shouldValidate: true });
                         }}
-                        placeholder="Describe your event in detail..."
+                        placeholder={t('activities.form.placeholder.description')}
                         className="min-h-[300px]"
                       />
                       {form.formState.errors.description && (
@@ -192,16 +188,16 @@ const Activities = () => {
                     </div>
 
                     <div className="bg-muted p-4 rounded-lg">
-                      <h3 className="font-semibold mb-2">Preview</h3>
+                      <h3 className="font-semibold mb-2">{t('activities.preview.title')}</h3>
                       <div 
                         className="prose prose-sm max-w-none"
-                        dangerouslySetInnerHTML={{ __html: content || '<p class="text-muted-foreground">Your event description will appear here...</p>' }}
+                        dangerouslySetInnerHTML={{ __html: content || `<p class="text-muted-foreground">${t('activities.preview.empty')}</p>` }}
                       />
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full">
+                    <Button type="submit" size="lg" className="w-full" disabled={submitting}>
                       <Send className="h-4 w-4 mr-2" />
-                      Submit Event for Review
+                      {submitting ? t('activities.form.submitting') : t('activities.form.submit')}
                     </Button>
                   </form>
                 </Form>
@@ -213,15 +209,10 @@ const Activities = () => {
         <div className="mt-16 bg-secondary/20 rounded-lg p-8 max-w-4xl mx-auto">
           <div className="text-center">
             <Sparkles className="h-12 w-12 text-primary mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-4">
-              Host Your Event at Our Museum
-            </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Our beautiful grounds and facilities are available for cultural events, workshops, 
-              exhibitions, and educational activities. Contact us to discuss your event.
-            </p>
+            <h3 className="text-2xl font-bold mb-4">{t('activities.host.title')}</h3>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">{t('activities.host.description')}</p>
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-              <a href="mailto:info@museu-sbras.pt">Contact Us</a>
+              <a href="mailto:info@museu-sbras.pt">{t('activities.host.contact')}</a>
             </Button>
           </div>
         </div>

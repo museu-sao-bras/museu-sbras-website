@@ -34,6 +34,7 @@ const RichTextEditor = ({ value, onChange, placeholder, className }: RichTextEdi
   return (
     <div className={className}>
       <ReactQuill
+        key={placeholder ?? 'rte'}
         ref={quillRef}
         theme="snow"
         value={value}
