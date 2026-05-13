@@ -40,6 +40,9 @@ export const Navigation = () => {
             <Link to="/plans" className="text-sm font-medium text-primary hover:opacity-90 transition-opacity">
               {t('nav.plans')}
             </Link>
+            <Link to="/library" className="text-sm font-medium text-primary hover:opacity-90 transition-opacity">
+              {t('nav.library')}
+            </Link>
             <Link to="/contact" className="text-sm font-medium text-primary hover:opacity-90 transition-opacity">
               {t('nav.contact')}
             </Link>
@@ -101,6 +104,13 @@ export const Navigation = () => {
                 className="text-sm font-medium text-primary hover:opacity-90 transition-opacity py-2"
               >
                 {t('nav.plans')}
+              </Link>
+              <Link
+                to="/library"
+                onClick={() => setIsOpen(false)}
+                className="text-sm font-medium text-primary hover:opacity-90 transition-opacity py-2"
+              >
+                {t('nav.library')}
               </Link>
               <Link
                 to="/contact"

@@ -14,6 +14,7 @@ import {
     DialogHeader,
     DialogTitle,
 } from '@/components/ui/dialog';
+import i18n from '@/i18n/config';
 
 type RawBook = Record<string, string>;
 
@@ -84,7 +85,7 @@ const Library = () => {
         };
         load();
         // fire page view tracking (non-blocking)
-        void logEvent({ event_type: 'page_view', path: "/library", properties: { page: 'library' } });
+        void logEvent({ event_type: 'page_view', path: "/library", properties: { page: 'library', currentLanguage: i18n.language } });
         return () => { mounted = false; };
     }, []);
 
@@ -177,7 +178,7 @@ const Library = () => {
                                                                     target="_blank"
                                                                     rel="noreferrer"
                                                                     className="text-primary underline"
-                                                                    onClick={() => { void logEvent({ event_type: 'book_link_click', properties: { title: b.title, url: b.link } }); }}
+                                                                    onClick={() => { void logEvent({ event_type: 'book_link_click', properties: { title: b.title, url: b.link, currentLanguage: i18n.language } }); }}
                                                                 >{t('library.view')}</a>
                                                             ) : '—'}
                                                         </TableCell>
@@ -188,7 +189,7 @@ const Library = () => {
                                                                     <button
                                                                         className="text-primary underline"
                                                                         onClick={() => {
-                                                                            void logEvent({ event_type: 'book_description_click', properties: { title: b.title } });
+                                                                            void logEvent({ event_type: 'book_description_click', properties: { title: b.title, currentLanguage: i18n.language } });
                                                                             setSelectedIndex(b.index);
                                                                             setDialogOpen(true);
                                                                         }}
