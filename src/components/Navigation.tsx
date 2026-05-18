@@ -46,9 +46,9 @@ export const Navigation = () => {
             <Link to="/contact" className="text-sm font-medium text-primary hover:opacity-90 transition-opacity">
               {t('nav.contact')}
             </Link>
-            <Button asChild variant="default" size="sm" className="bg-secondary hover:bg-secondary/90 text-white">
+            {/* <Button asChild variant="default" size="sm" className="bg-secondary hover:bg-secondary/90 text-white">
               <Link to="/donate">{t('nav.donate')}</Link>
-            </Button>
+            </Button> */}
             <LanguageSwitcher />
           </div>
 
@@ -119,11 +119,11 @@ export const Navigation = () => {
               >
                 {t('nav.contact')}
               </Link>
-              <Button asChild variant="default" size="sm" className="bg-secondary hover:bg-secondary/90 text-white w-full">
+              {/* <Button asChild variant="default" size="sm" className="bg-secondary hover:bg-secondary/90 text-white w-full">
                 <Link to="/donate" onClick={() => setIsOpen(false)}>
                   {t('nav.donate')}
                 </Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
         )}

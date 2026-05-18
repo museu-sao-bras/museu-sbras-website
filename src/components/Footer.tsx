@@ -28,9 +28,9 @@ export const Footer = () => {
               <Link to="/activities" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 {t('nav.activities')}
               </Link>
-              <Link to="/donate" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              {/* <Link to="/donate" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 {t('nav.donate')}
-              </Link>
+              </Link> */}
               <Link to="https://amigosdomuseu.com" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 Amigos do Museu
               </Link>

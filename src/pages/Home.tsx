@@ -205,7 +205,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section (lighter, less white-on-green) */}
-      <section className="py-20 bg-primary/8 dark:bg-primary/12">
+      {/* <section className="py-20 bg-primary/8 dark:bg-primary/12">
         <div className="container mx-auto px-4 text-center">
           <Heart className="h-16 w-16 mx-auto mb-6 text-accent" />
           <h2 className="text-4xl font-bold mb-4 text-foreground">{t('donate.title')}</h2>
@@ -216,7 +216,7 @@ const Home = () => {
             <Link to="/donate">{t('nav.donate')}</Link>
           </Button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
