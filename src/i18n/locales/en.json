@@ -49,11 +49,15 @@
   "exhibitions": {
     "title": "Exhibitions",
     "permanent": "Permanent Collection",
-    "permanentDesc": "Explore our core collection showcasing traditional Portuguese costumes from various regions and time periods.",
+    "permanentDesc": "Explore our core collection showcasing traditional cork and horse drawn carriages from various regions and time periods.",
     "temporary": "Current Exhibition",
     "temporaryDesc": "Discover our rotating exhibitions featuring special themes and guest collections.",
     "previous": "Exhibition Archive",
     "previousDesc": "Browse through past exhibitions and learn about their unique stories."
+    ,
+    "viewCollection": "View Collection",
+    "seeCurrent": "See Current",
+    "browseArchive": "Browse Archive"
   },
   "tours": {
     "title": "Book a Tour",

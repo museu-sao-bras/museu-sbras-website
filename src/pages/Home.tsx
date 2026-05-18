@@ -75,7 +75,7 @@ const Home = () => {
                 />
 
                 {/* floating badge 1 (z-20) */}
-                <motion.div
+                {/* <motion.div
                   animate={{ y: [0, 14, 0], rotate: [0, 0, 0] }}
                   transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
                   className="absolute -top-6 -right-6 z-20 bg-white rounded-2xl border border-black/5 p-3 shadow-xl flex items-center gap-3"
@@ -87,10 +87,10 @@ const Home = () => {
                       <div className="text-[10px] font-bold uppercase text-black/40">{t('hero.badges.status.label')}</div>
                       <div className="text-sm font-bold">{t('hero.badges.status.collection')}</div>
                     </div>
-                </motion.div>
+                </motion.div> */}
 
                 {/* floating badge 2 (z-20) */}
-                <motion.div
+                {/* <motion.div
                   animate={{ y: [0, 14, 0], x: [0, 0, 0] }}
                   transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
                   className="absolute top-1/2 -left-14 z-20 bg-white rounded-2xl border border-black/5 p-3 shadow-xl flex items-center gap-3"
@@ -102,10 +102,10 @@ const Home = () => {
                     <div className="text-[10px] font-bold uppercase text-black/40">{t('hero.badges.visitors.label')}</div>
                     <div className="text-sm font-bold">{t('hero.badges.visitors.count')}</div>
                   </div>
-                </motion.div>
+                </motion.div> */}
 
                 {/* floating metric pill (z-20) */}
-                <motion.div
+                {/* <motion.div
                   animate={{ scale: [1, 1.05, 1], y: [0, 0, 0] }}
                   transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut', delay: 0.9 }}
                   className="absolute bottom-6 -right-6 z-20 bg-white rounded-2xl border border-black/5 p-4 shadow-2xl"
@@ -118,7 +118,7 @@ const Home = () => {
                     <span className="text-2xl font-bold">{t('hero.badges.display.count')}</span>
                     <span className="text-xs text-muted-foreground font-bold">{t('hero.badges.display.unit')}</span>
                   </div>
-                </motion.div>
+                </motion.div> */}
               </motion.div>
             </motion.div>
           </div>

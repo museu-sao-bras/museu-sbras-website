@@ -7,20 +7,22 @@
     "previous": "Anteriores",
     "activities": "Atividades",
     "tours": "Visitas",
-    "plans": "Voluntariado e projetos",
+    "plans": "Planos & Voluntários",
     "contact": "Contacto",
-    "donate": "Doar"
+     "donate": "Doar",
+     "library": "Biblioteca"
   },
   "hero": {
     "title": "Museu do Traje",
     "subtitle": "São Brás de Alportel",
-    "description": "A coleção de traje deste Museu é uma das maiores existentes no país. Constitui um testemunho valioso da identidade e da tradição algarvias, desde os finais XVIII a meados do século XX.",
+    "description": "A preservar o rico património têxtil da região do Algarve desde 1988. Descubra mais de 300 anos da história da moda portuguesa.",
     "cta": "Explorar Coleções",
-    "secondaryCta": "Reservar Visita",
+    "secondaryCta": "Reservar Visita"
+    ,
     "badges": {
       "status": {
         "label": "Estado",
-        "collection": "Recentemente adicionado à coleção"
+        "collection": "Adicionado à coleção 'Trajes Populares'"
       },
       "visitors": {
         "label": "Visitantes",
@@ -35,32 +37,28 @@
   },
   "about": {
     "title": "A Nossa História",
-    "description": "O Museu do Traje de São Brás de Alportel preserva e exibe o rico património têxtil da região do Algarve. Fundado em 1988, o nosso museu",
+    "description": "O Museu do Traje de São Brás de Alportel preserva e exibe o rico património têxtil da região do Algarve. Fundado em 1988, o nosso museu possui uma das coleções mais abrangentes de Portugal de trajes tradicionais portugueses, vestuário popular e traje cerimonial.",
     "mission": "A Nossa Missão",
     "missionText": "Preservar, estudar e promover o património têxtil português através de exposições inovadoras, programas educativos e iniciativas culturais."
   },
   "stats": {
     "items": "Peças de Vestuário",
     "years": "Anos de História",
-    "regions": "REFERENCE REMOVED"
+    "regions": "Regiões Representadas"
   },
   "exhibitions": {
     "title": "Exposições",
-    "permanent": "Exposição Permanente",
-    "permanentDesc": "Cortiça, veículos hipomoveis",
+    "permanent": "Coleção Permanente",
+    "permanentDesc": "Explore a nossa coleção principal que apresenta trajes tradicionais portugueses de várias regiões e períodos.",
     "temporary": "Exposição Atual",
-    "temporaryDesc": "Descubra as nossas exposições temporárias com temas especiais e coleções convidadas.",
+    "temporaryDesc": "Descubra as nossas exposições rotativas com temas especiais e coleções convidadas.",
     "previous": "Arquivo de Exposições",
     "previousDesc": "Navegue pelas exposições passadas e conheça as suas histórias únicas."
-    ,
-    "viewCollection": "Ver Coleção",
-    "seeCurrent": "Ver Exposição Atual",
-    "browseArchive": "Navegar no Arquivo"
   },
   "tours": {
     "title": "Reservar Visita",
     "subtitle": "Conheça o museu com uma visita guiada",
-    "description": "As nossas visitas guiadas oferecem uma experiência aprofundada das tradições têxteis portuguesas. As visitas estão disponíveis para grupos de 10 ou mais pessoas.",
+    "description": "As nossas visitas guiadas oferecem uma exploração aprofundada das tradições têxteis portuguesas. As visitas estão disponíveis para grupos de 10 ou mais pessoas.",
     "minimum": "Mínimo de 10 pessoas",
     "groupNote": "Apenas reservas de grupo",
     "duration": "1.5 Horas",
@@ -140,7 +138,8 @@
     "links": "Links",
     "followUs": "Siga-nos",
     "rights": "Todos os direitos reservados."
-  },
+  }
+  ,
   "plans": {
     "subtitle": "Junte-se a nós na preservação e promoção do património cultural português",
     "cards": {
@@ -163,20 +162,20 @@
     },
     "initiatives": {
       "title": "Iniciativas Atuais",
-      "items": {
-        "0": {
+      "items": [
+        {
           "title": "Projeto de Arquivo Digital",
           "desc": "Digitalizar toda a nossa coleção para a tornar acessível online"
         },
-        "1": {
+        {
           "title": "Oficina de Conservação",
           "desc": "Estabelecer uma oficina de conservação têxtil para trabalhos de restauro"
         },
-        "2": {
+        {
           "title": "Alcance Educativo",
           "desc": "Desenvolver programas para escolas e grupos comunitários"
         }
-      }
+      ]
     },
     "volunteer": {
       "title": "Torne-se Voluntário",
@@ -203,7 +202,8 @@
         "interests": "Por favor conte-nos mais sobre os seus interesses (pelo menos 50 caracteres)"
       }
     }
-  },
+  }
+  ,
   "activities": {
     "subtitle": "Os espaços do museu acolhem vários eventos e atividades culturais ao longo do ano",
     "tabs": {
@@ -251,6 +251,31 @@
       "title": "Organize o Seu Evento no Nosso Museu",
       "description": "Os nossos bonitos espaços e instalações estão disponíveis para eventos culturais, oficinas, exposições e atividades educativas. Contacte-nos para discutir o seu evento.",
       "contact": "Contacte-nos"
+    }
+  }
+  ,
+  "library": {
+    "loading": "A carregar…",
+    "error": "Falha ao carregar a biblioteca: {{error}}",
+    "view": "Ver",
+    "descriptionTitle": "Descrição completa",
+    "table": {
+      "nr": "Nr",
+      "title": "Título",
+      "vol": "Vol",
+      "author": "Autor",
+      "publisher": "Editora",
+      "place": "Local",
+      "year": "Ano",
+      "est": "Est",
+      "pra": "Pra",
+      "description": "Descrição",
+      "link": "Cópia Digital"
+    }
+    ,
+    "controls": {
+      "searchPlaceholder": "Procurar título, autor, editora",
+      "sortBy": "Ordenar por"
     }
   }
 }

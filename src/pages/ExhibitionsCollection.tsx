@@ -42,7 +42,6 @@ const ExhibitionsCollection = () => {
   const items = q.data?.items ?? [];
   const [activeIdx, setActiveIdx] = useState(0);
   const [imgIndex, setImgIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
 
   const exhibitions = items;
 
@@ -50,12 +49,7 @@ const ExhibitionsCollection = () => {
   const ex = exhibitions[activeIdx];
   const imgs: string[] = (ex?.images ?? []).map((img: any) => (typeof img === 'string' ? img : img?.public_url)).filter(Boolean);
 
-  // autoplay
-  useEffect(() => {
-    if (paused || imgs.length <= 1) return;
-    const id = setInterval(() => setImgIndex(i => (i + 1) % imgs.length), 4000);
-    return () => clearInterval(id);
-  }, [imgs.length, paused]);
+
 
   // when switching exhibitions reset the image index
   useEffect(() => setImgIndex(0), [activeIdx]);
@@ -109,18 +103,16 @@ const ExhibitionsCollection = () => {
         ))}
       </div>
 
+      {/* import React, { useState, useEffect, useCallback } from 'react'; const Carousel = ({ images = [] }) => { const [currentIndex, setCurrentIndex] = useState(0); const nextSlide = useCallback(() => { setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1)); }, [images.length]); const prevSlide = () => { setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1)); }; useEffect(() => { const timer = setInterval(nextSlide, 5000); return () => clearInterval(timer); }, [nextSlide]); return ( <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-2xl group"> <div className="flex transition-transform duration-500 ease-out h-96" style={{ transform: `translateX(-${currentIndex * 100}%)` }}> {images.map((img, index) => ( <div key={index} className="min-w-full h-full"> <img src={img} alt={`Slide ${index}`} className="w-full h-full object-cover" /> </div> ))} </div> <button onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/60 backdrop-blur-sm text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"> &#10094; </button> <button onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/60 backdrop-blur-sm text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"> &#10095; </button> <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2"> {images.map((_, index) => ( <button key={index} onClick={() => setCurrentIndex(index)} className={`w-3 h-3 rounded-full transition-all ${currentIndex === index ? 'bg-white scale-125' : 'bg-white/50'}`} /> ))} </div> </div> ); }; export default Carousel; */}
+
       {/* Full screen exhibition with motion carousel */}
       <div className="flex-1 flex flex-col items-center justify-center px-4">
         {imgs.length > 0 && (
-          <div
-            className="relative w-full max-w-4xl mb-8"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
+          <div className="relative w-full max-w-4xl mb-8">
             <div className="overflow-hidden rounded">
               <motion.div
                 className="flex"
-                animate={{ x: `-${imgIndex * 100}%` }}
+                animate={{ x: imgs.length ? `-${(imgIndex * 100) / imgs.length}%` : '0%' }}
                 transition={{ type: 'tween', ease: 'easeInOut', duration: 0.45 }}
                 style={{ width: `${imgs.length * 100}%` }}
               >
@@ -154,7 +146,7 @@ const ExhibitionsCollection = () => {
         )}
 
         <h2 className="text-3xl font-bold mb-4 text-center">{ex.title}</h2>
-        <p className="text-lg text-muted-foreground text-center max-w-2xl">{ex.description}</p>
+        <p className="text-lg text-muted-foreground text-center max-w-2xl whitespace-pre-line">{ex.description}</p>
       </div>
     </motion.div>
   );

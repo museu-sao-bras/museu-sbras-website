@@ -62,7 +62,7 @@ const Exhibitions = () => {
                 {t('exhibitions.permanentDesc')}
               </p>
               <Button asChild className="w-full">
-                <Link to="/exhibitions/permanent">View Collection</Link>
+                <Link to="/exhibitions/permanent">{t('exhibitions.viewCollection')}</Link>
               </Button>
             </CardContent>
           </Card>
@@ -81,7 +81,7 @@ const Exhibitions = () => {
                 {t('exhibitions.temporaryDesc')}
               </p>
               <Button asChild className="w-full bg-secondary hover:bg-secondary/90">
-                <Link to="/exhibitions/temporary">See Current</Link>
+                <Link to="/exhibitions/temporary">{t('exhibitions.seeCurrent')}</Link>
               </Button>
             </CardContent>
           </Card>
@@ -100,20 +100,20 @@ const Exhibitions = () => {
                 {t('exhibitions.previousDesc')}
               </p>
               <Button asChild variant="outline" className="w-full">
-                <Link to="/exhibitions/previous">Browse Archive</Link>
+                <Link to="/exhibitions/previous">{t('exhibitions.browseArchive')}</Link>
               </Button>
             </CardContent>
           </Card>
         </div>
 
-        <div className="mt-16 bg-muted rounded-lg p-8">
+        {/* <div className="mt-16 bg-muted rounded-lg p-8">
           <h3 className="text-2xl font-bold text-center mb-4">
             3D Models Coming Soon
           </h3>
           <p className="text-center text-muted-foreground">
             We're working on adding interactive 3D models of our costume collection. Check back soon!
           </p>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );
